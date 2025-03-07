@@ -38,11 +38,11 @@ body {
     right: 50%;
 }
 
-/* Initially hide the register form */
+/* Initially hide the register form
 .form-container.register {
    
     visibility: hidden;
-}
+} */
 
 /* Forgot Password */
 .forgot {
