@@ -1,35 +1,36 @@
 require('dotenv').config();
-import express from 'express';
-import { connect, Schema, model } from 'mongoose';
-import cors from 'cors';
-import { json } from 'body-parser';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(json());
+app.use(bodyParser.json());
 
 // Connect to MongoDB
-connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
 // Define User Schema
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     username: String,
     email: String,
-    password: String
+    password: String,
+    cpassword: String
 });
 
-const User = model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 // API Endpoint to Handle Registration
 app.post('/register', async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password, cpassword } = req.body;
 
         // Check if user already exists
         const existingUser = await User.findOne({ email });
@@ -37,7 +38,7 @@ app.post('/register', async (req, res) => {
             return res.status(400).json({ message: "User already exists" });
         }
 
-        const newUser = new User({ username, email, password });
+        const newUser = new User({ username, email, password, cpassword});
         await newUser.save();
         res.status(201).json({ message: "User registered successfully!" });
     } catch (error) {
