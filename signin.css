@@ -106,3 +106,22 @@ button {
 button:hover {
     background: #5940cc;
 }
+
+
+
+/* LOGIN css */
+.forgot-password {
+    text-align: center;
+    margin: 5px 0;
+
+}
+
+.forgot-password a {
+    color: aqua;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
