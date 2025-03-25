@@ -4,10 +4,23 @@ document.querySelector("form").addEventListener("submit", async function(event) 
     let username = document.getElementById("username").value.trim();
     let email = document.getElementById("email").value.trim();
     let dob = document.getElementById("dob").value;
-    let gender = document.querySelector('input[name="gender"]:checked')?.value;
     let address = document.getElementById("address").value.trim();
     let password = document.getElementById("password").value.trim();
     let confirmPassword = document.getElementById("confirm-password").value.trim();
+
+    // Get selected gender
+    let gender = document.getElementsByName("gender");
+    let gen = "";
+    for (let i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            gen = gender[i].value;
+            break;
+        }
+    }
+    if (!gen) {
+        alert("Please select a gender.");
+        return;
+    }
 
     // Password validation: At least 6 characters, one uppercase, one lowercase, one special character
     let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/;
@@ -25,7 +38,7 @@ document.querySelector("form").addEventListener("submit", async function(event) 
         let response = await fetch("http://localhost:5000/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, dob, gender, address, password }),
+            body: JSON.stringify({ username, email, dob, gen, address, password }),
         });
 
         let result = await response.json();
@@ -33,7 +46,7 @@ document.querySelector("form").addEventListener("submit", async function(event) 
             alert("Registration successful!");
             window.location.href = "login.html";
         } else {
-            alert(result.message);
+            alert(result.message); // Show the error message for duplicate username/email
         }
     } catch (error) {
         console.error("Error:", error);
