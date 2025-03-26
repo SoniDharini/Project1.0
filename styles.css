@@ -1,21 +1,46 @@
- body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: white;
-        color: black;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Adjust text color for visibility */
+    position: relative;
+    background-image: url('image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* White semi-transparent overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* White with 40% opacity */
+    backdrop-filter: blur(5px); /* Smooth blur effect */
+    z-index: -1; /* Keep it behind content */
+}
+
+/* Ensure content is readable */
+.container {
+    position: relative;
+    text-align: center;
+    padding: 50px;
+}
+
 
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 15px 30px;
-        background: linear-gradient(135deg, #4a90e2, #162447);
+        background: white;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        border-bottom: 2px solid #00d0ff;
-        color: white;
+        /* border-bottom: 2px solid #00d0ff; */
+        color: rgb(3, 3, 3);
     }
 
     .logo {
@@ -37,7 +62,7 @@
 
     .nav a {
         text-decoration: none;
-        color: white;
+        color: rgb(16, 15, 15);
         font-weight: 600;
         padding: 12px 18px;
         border-radius: 8px;
@@ -45,17 +70,53 @@
     }
 
     .nav a:hover {
-        background: #006aff;
+        background: #000000;
         color: rgb(255, 250, 250);
         transform: scale(1.05);
     }
 
-    .profile-section {
+    .theme-switch {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
     }
-
+    
+    .theme-switch input {
+        display: none;
+    }
+    
+    .theme-switch label {
+        width: 50px;
+        height: 25px;
+        background: #000000;
+        border-radius: 25px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+    
+    .theme-switch label::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        top: 50%;
+        left: 3px;
+        transform: translateY(-50%);
+        transition: 0.3s;
+    }
+    
+    .theme-switch input:checked + label {
+        background: #ffffff;
+    }
+    
+    .theme-switch input:checked + label::before {
+        left: calc(100% - 23px);
+        background: rgb(0, 0, 0);
+    }
+    
     .profile-pic {
         width: 50px;
         height: 50px;
@@ -90,18 +151,47 @@
 
  
 .dark-mode {
-    background-color: #1b1b1b;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Adjust text color for visibility */
+    position: relative;
+    background-image: url('image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     color: white;
+
+}
+.dark-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 12, 12, 0.4); /* White with 40% opacity */
+    backdrop-filter: blur(5px); /* Smooth blur effect */
+    z-index: -1; /* Keep it behind content */
+}
+
+/* Ensure content is readable */
+.dark-mode.container {
+    position: relative;
+    text-align: center;
+    padding: 50px;
 }
 .dark-mode .header {
-    background: linear-gradient(135deg, #232526, #414345);
-    border-bottom: 2px solid #ffffff;
+    background: linear-gradient(135deg, #2d3030, #060606);
+    /* background: rgb(51, 37, 115); */
+    /* border-bottom: 2px solid #ffffff; */
 }
 
 .dark-mode .nav a {
-    color: white;
+    color: rgb(255, 254, 254);
 }
 .dark-mode .nav a:hover {
-    background: #eeede8;
+    background: #ffffff;
     color: black;
 }
