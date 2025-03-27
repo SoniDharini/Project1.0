@@ -78,6 +78,8 @@ app.post("/login", async (req, res) => {
 
 
 // Forgot Password Route
+
+
 app.post("/forgot-password", async (req, res) => {
     const { email } = req.body;
 
@@ -96,8 +98,8 @@ app.post("/forgot-password", async (req, res) => {
         // Updated transporter
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
-            port: 465,  //  Use 465 for SSL (or 587 for TLS)
-            secure: true, //  true for 465, false for 587
+            port: 587,  // ✅ Use 465 for SSL (or 587 for TLS)
+            secure: false, // ✅ true for 465, false for 587
             auth: {
                 user: "soniayushi880@gmail.com", // Replace with your Gmail
                 pass: "xyvbvytemolauxp",  // Replace with your generated App Password
