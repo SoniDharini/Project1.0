@@ -19,20 +19,24 @@
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle"></label>
-        </div >
-        
-            <!-- <a href="/profile" class="profile-link">Profile</a> -->
-            <!-- <a href="/logout" class="logout">Logout</a> -->
+        <div class="right-section">
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle"></label>
+            </div>
+            <div class="profile-container">
+                <div class="profile-circle" id="profile-circle">U</div>
+                <div class="toggle-box" id="toggle-box">
+                    <button onclick="goToSettings()">Settings</button>
+                    <button onclick="goToProfile()">Profile</button>
+                    <button onclick="closeToggle()">Close</button>
+                </div>
+            </div>
         </div>
     </header>
-<div class="container">
-    <h1>Landing page</h1>
-</div>
 
-    
-   
+    <div class="container">
+        <h1>Landing Page</h1>
+    </div>
 </body>
 </html>

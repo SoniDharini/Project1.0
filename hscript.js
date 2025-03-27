@@ -18,3 +18,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.getElementById("profile-circle").addEventListener("click", function(event) {
+    let toggleBox = document.getElementById("toggle-box");
+    toggleBox.style.display = (toggleBox.style.display === "block") ? "none" : "block";
+
+    // Close when clicking outside
+    document.addEventListener("click", function closeDropdown(e) {
+        if (!toggleBox.contains(e.target) && !event.target.contains(e.target)) {
+            toggleBox.style.display = "none";
+            document.removeEventListener("click", closeDropdown);
+        }
+    });
+});
+
+function closeToggle() {
+    document.getElementById("toggle-box").style.display = "none";
+}
+
+function goToSettings() {
+    window.location.href = "/settings";
+}
+
+function goToProfile() {
+    window.location.href = "/profile";
+}
