@@ -20,9 +20,9 @@ async function validateLogin(event) {
 
         if (response.status === 200) {
             alert("Login Successful!");
-            window.location.href = "dashboard.html"; // Redirect to dashboard or homepage
+            window.location.href = "herosection.html"; 
         } else {
-            alert(result.message); // Display error message
+            alert(result.message); 
         }
     } catch (error) {
         console.error("Error:", error);
