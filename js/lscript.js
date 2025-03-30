@@ -19,6 +19,7 @@ async function validateLogin(event) {
         let result = await response.json();
 
         if (response.status === 200) {
+            localStorage.setItem('username', result.username);
             alert("Login Successful!");
             window.location.href = "herosection.html"; 
         } else {
