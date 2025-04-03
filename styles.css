@@ -256,3 +256,67 @@ body::before {
 .toggle-box button:hover {
     background: #f0f0f0;
 }
+/* Responsive Styles */
+
+/* Adjust navbar for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .theme-switch {
+        margin-left: 0;
+    }
+
+    .right-section {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Adjust padding and text size for smaller screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .profile-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+/* Ensure the profile toggle box aligns correctly */
+@media (max-width: 600px) {
+    .toggle-box {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 100px;
+    }
+}

@@ -104,7 +104,7 @@ button {
     margin-top: 10px;
 }
 button:hover {
-    background: #5940cc;
+    background: #03a5fc;
 }
 
 
@@ -124,4 +124,52 @@ button:hover {
 
 .forgot-password a:hover {
     text-decoration: underline;
+}
+/* Responsive Styles */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 80%; /* Increase width for better fit */
+        padding: 15px;
+    }
+
+    .profile-section img {
+        width: 100px;
+        height: 100px;
+    }
+
+    input {
+        width: 100%; /* Full width inputs for smaller screens */
+    }
+
+    .gender-group {
+        gap: 20px; /* Reduce spacing between gender options */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Maximize use of small screens */
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px; /* Slightly reduce heading size */
+    }
+
+    .profile-section img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .gender-group {
+        flex-direction: column; /* Stack gender options vertically */
+        align-items: center;
+    }
+
+    button {
+        font-size: 12px; /* Reduce button font size for better fit */
+    }
 }
